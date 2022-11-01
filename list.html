@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel=stylesheet type="text/css" href="./style3.css">
+    <link rel=stylesheet type="text/css" href="./style2.css">
+
+
+</head>
+
+<script type="text/javascript">
+    //1、找到container下的所有img标签,li标签,左右按钮
+    var aImgs = document.querySelectorAll('.container img');
+    var aLis = document.querySelectorAll('.container li');
+    var btnLeft = document.querySelector('.container .left');
+    var btnRight = document.querySelector('.container .right');
+
+    // //检验是否找到
+    // console.log(aImgs);
+    // console.log(aLis);
+    // console.log(btnLeft);
+    // console.log(btnRight);
+
+    //点击事件
+    //点击按钮图片切换
+    var index = 0;        //当前图片下标
+    var lastIndex = 0;
+    btnRight.onclick = function(){
+        //记录上一张图片的下标
+        lastIndex = index;
+        //清除上一张图片的样式
+        aImgs[lastIndex].className = '';
+        aLis[lastIndex].className = '';
+
+        index++;
+        index %= aImgs.length;    //实现周期性变化
+        //设置当前图片的样式
+        aImgs[index].className = 'on';
+        aLis[index].className = 'active';
+    }
+    //左边按钮类似
+    btnLeft.onclick = function(){
+        //记录上一张图片的下标
+        lastIndex = index;
+        //清除上一张图片的样式
+        aImgs[lastIndex].className = '';
+        aLis[lastIndex].className = '';
+
+        index--;
+        if (index < 0) {
+            index = aImgs.length - 1;
+        }
+        //设置当前图片的样式
+        aImgs[index].className = 'on';
+        aLis[index].className = 'active';
+    }
+</script>
+
+<body>
+    <link >
+    <div class="hengtiao"><img src="./images/snlogo.png" class="logow">
+        <div>
+            <p class="be" style="position:absolute; top:0%">登录</p>
+            <p class="be" style="position:absolute; top:5%">注册</p>
+        </div>
+        <div class="heng" style="position:absolute; top:160px">
+            <p style="color:aliceblue; font-size:15px; position: absolute; left:300px">首页</p>
+        </div>
+        <p style="color:aliceblue;  background-color: rgb(233, 15, 62);        position:absolute; top:160px;height: 60px; font-family:sans-serif;font-size: 50px;left: 300px;" class="beijing"> 电器</p>
+        <li class="clr-item" style="position:absolute; top: 280px; left:300px; border: 1px #ddd solid  ; width: 400px;height: 60px;"><span style="text-align:center ;">空调</span> </li>    </div>
+        <li class="clr-item" style="position:absolute; top: 340px; left:300px; border: 1px #ddd solid  ; width: 400px;height: 60px;"><span  style="text-align:center ;">冰箱</span> </li>    </div>
+        <li class="clr-item" style="position:absolute; top: 400px; left:300px; border: 1px #ddd solid  ; width: 400px;height: 60px;"><span style="text-align:center ;">洗衣机</span> </li>    </div>
+        <li class="clr-item" style="position:absolute; top: 460px; left:300px; border: 1px #ddd solid  ; width: 400px;height: 60px;"><span style="text-align:center ;">电脑</span> </li>    </div>
+        <li class="clr-item" style="position:absolute; top: 520px; left:300px; border: 1px #ddd solid  ; width: 400px;height: 60px;"><span  style="text-align:center ;">手机</span> </li>    </div>
+        <li class="clr-item" style="position:absolute; top: 580px; left:300px; border: 1px #ddd solid  ; width: 400px;height: 60px;"><span  style="text-align:center ;">智能家居</span> </li>    </div>
+        <li class="clr-item" style="position:absolute; top: 640px; left:300px; border: 1px #ddd solid  ; width: 400px;height: 60px;"><span  style="text-align:center ;">电视家影</span> </li>    </div>
+        <li class="clr-item" style="position:absolute; top: 700px; left:300px; border: 1px #ddd solid  ; width: 400px;height: 60px;"><span  style="text-align:center ;">生活家电</span> </li>    </div>
+        <li class="clr-item" style="position:absolute; top: 760px; left:300px; border: 1px #ddd solid  ; width: 400px;height: 60px;"><span   style="text-align:center ;">厨卫电器</span> </li>    </div>
+
+    <div class="container">
+        <!-- 图片 -->
+        <!-- 先把第一张图片显示出来 -->
+        <img class="on" src="./category/2.jpg" />
+        <img src="./category/1.jpg" />
+        <img src="./category/3.jpg" />
+        <img src="./category/4.jpg" />
+        <img src="img/5.jpg" />
+
+        <!-- 左右按钮 -->
+        <div class="left"><</div>
+        <div class="right">></div>
+        <ul>
+            <li class="active"></li>
+            <li class="active"></li>
+            <li class="active"></li>
+            <li class="active"></li>
+            <li class="active"></li>
+        </ul>
+    </div>
+    
+    <div class="jutimokuai" style="left:300px">
+        <div class="zibiaoti"><span style="position:absolute; top:0%; font-size: 34px; color: aliceblue; left: 10px;">苏宁家电</span>
+            <img src="./category/12.jpg" style="position: absolute; left: 100px;top:70px">
+            <a href="" style="position:absolute ;top:280px; width: 210px;left:100px">老板22m³变频双腔烟灶套餐油烟机灶具套餐烟灶套装抽油烟机厨电套装60X2S+57B0X天然气60D1S同款 </a>
+            <img src="./category/13.jpg" style="position: absolute; left: 330px;top:70px">
+            <a href="" style="position:absolute ;top:280px; width: 210px;left:330px">海信65英寸 120Hz MEMC AI远场语音 2+32GB 65E3G-PRO 120Hz防抖电视 </a>
+
+            <img src="./category/14.jpg" style="position: absolute; left: 560px;top:70px" >
+            <a href="" style="position:absolute ;top:280px; width: 210px;left:560px">海尔(Haier)515升 对开门冰箱 双变频无霜 纤薄机身 多路送风 节能低音 家用海尔冰箱 BCD-515WDPD</a>
+
+        </div>
+    </div>
+
+
+    <div class="jutimokuai" style="left:1200px">
+        <div class="zibiaoti"><span style="position:absolute; top:0%; font-size: 34px; color: aliceblue; left: 10px;">手机电脑</span>
+            <img src="./category/12.jpg" style="position: absolute; left: 100px;top:70px">
+            <a href="" style="position:absolute ;top:280px; width: 210px;left:100px">iPhone 14 午夜色 128G 移动联通电信 5G全网通 官方授权全新国行正品 </a>
+            <img src="./category/13.jpg" style="position: absolute; left: 330px;top:70px">
+            <a href="" style="position:absolute ;top:280px; width: 210px;left:330px">iPad 9 代 256G </a>
+
+            <img src="./category/14.jpg" style="position: absolute; left: 560px;top:70px" >
+            <a href="" style="position:absolute ;top:280px; width: 210px;left:560px">Apple Watch Series 8 GPS版 41mm 星光色铝金属表壳 运动型表带</a>
+
+        </div>
+    </div>
+    <div>
+        <img src="./images/pingdao.png" style="position: absolute; top:126%; width: 1740px; left:300px">
+    </div>
+
+
+    <div class="xiaomokuai" style="position:absolute;left: 300px;" >
+        <p style="font-size: 40px;position: absolute; top:0px;left: 10px;">苏宁电器</p>
+        <p style="font-size: 20px;position: absolute; top:30px;left: 190px;">买家电上苏宁</p>
+
+        <img src="./category/a.jpg" style="position:absolute; top:30%;left: 90px;"> 
+        <img src="./category/b.jpg" style="position:absolute;top:30%;left:330px"> 
+
+    </div>
+    <div class="xiaomokuai" style="position:absolute;left: 890px;" >
+        <p style="font-size: 40px;position: absolute; top:0px;left: 10px;">空调</p>
+        <p style="font-size: 20px;position: absolute; top:30px;left: 190px;">知您冷暖</p>
+
+        <img src="./category/k1.jpg" style="position:absolute; top:30%;left: 90px;"> 
+        <img src="./category/k2.png" style="position:absolute;top:30%;left:330px"> 
+
+    </div>
+    <div class="xiaomokuai" style="position:absolute;left: 1490px;" >
+        <p style="font-size: 40px;position: absolute; top:0px;left: 10px;">生活电器</p>
+        <p style="font-size: 20px;position: absolute; top:30px;left: 190px;">潮流小家电</p>
+
+        <img src="./category/j1.jpg" style="position:absolute; top:30%;left: 90px;"> 
+        <img src="./category/j2.jpg" style="position:absolute;top:30%;left:330px"> 
+    </div>
+    <div>
+        <img src="./images/tuijian.png" style="position: absolute; top:164%; width: 1740px; left:300px">
+    </div>
+
+
+    <div class="shangpin" style="position:absolute;top:175%;left:300px">
+        <img src="./category/t1.jpg" style="width: 400px;height: 350px;">
+        <p>自营 统帅海尔出品空调挂机2匹 壁挂式空调 新二级能效变频自清洁大风量冷暖 独立除湿</p>
+        <p class="jiage">￥3899</p>
+    </div>
+    <div class="shangpin" style="position:absolute;top:175%;left:750px">
+        <img src="./category/t2.jpg" style="width: 400px;height: 350px;">
+        <p>自营 美的(Midea)465升十字对开门家用冰箱风冷无霜一级能效智能操控变频节能BCD-465WTPZM(E) 大聚惠</p>
+        <p class="jiage">￥3199</p>
+    </div>
+    <div class="shangpin" style="position:absolute;top:175%;left:1200px">
+        <img src="./category/t3.jpg" style="width: 400px;height: 350px;">
+        <p>【双循环不串味】西门子 484升 多门冰箱 大容量法式四门冰箱 混冷无霜 分区保鲜 KM48EA30TI</p>
+        <p class="jiage">￥5499</p>
+    </div>
+    <div class="shangpin" style="position:absolute;top:175%;left:1650px">
+        <img src="./category/t4.png" style="width: 400px;height: 350px;">
+        <p>美菱(MELING)160升两门双门二门小冰箱租房优选小型家用节能低躁经济实用宿舍小巧不占地 BCD-160LCD</p>
+        <p class="jiage">￥999</p>
+    </div>
+
+
+    <div class="shangpin" style="position:absolute;top:220%;left:300px">
+        <img src="./category/t5.jpg" style="width: 400px;height: 350px;">
+        <p>自营 苏泊尔(SUPOR)空气炸锅 家用多功能4.2L大容量 烤箱薯条机 无油烟电炸锅 大功率 无油低脂煎炸锅KJ42D811 大聚惠 199.00元/p>
+        <p class="jiage">￥199</p>
+    </div>
+    <div class="shangpin" style="position:absolute;top:220%;left:750px">
+        <img src="./category/t6.jpg" style="width: 400px;height: 350px;">
+        <p>苏泊尔(SUPOR)电水壶1.7L大容量家用不锈钢烧水壶自动断电大容量开水壶 1.7LSW-17T12C</p>
+        <p class="jiage">￥84</p>
+    </div>
+    <div class="shangpin" style="position:absolute;top:220%;left:1200px">
+        <img src="./category/t7.jpg" style="width: 400px;height: 350px;">
+        <p>自营 万家乐 6.5升热水器电热水器 上出水热水器电热小厨宝 D6.5-S11AS 299.00元</p>
+        <p class="jiage">￥299</p>
+    </div>
+    <div class="shangpin" style="position:absolute;top:220%;left:1650px">
+        <img src="./category/t8.jpg" style="width: 400px;height: 350px;">
+        <p>SIEMENS/西门子10公斤 全自动变频滚筒洗衣机 高温筒清洁 智能洗护 XQG100-WB45UM000W</p>
+        <p class="jiage">￥4599</p>
+    </div>
+
+</body>
+</html>
